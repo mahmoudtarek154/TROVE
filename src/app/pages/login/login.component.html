@@ -1,0 +1,67 @@
+<div class="w-8/12 mx-auto py-10">
+  <h2 class="text-3xl mb-6 text-gray-600">Login Now :</h2>
+  <form [formGroup]="loginForms" (ngSubmit)="loginsubmit()">
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Email :</label
+      >
+      <input
+        formControlName="email"
+        type="text"
+        id="email"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        required
+      />
+      @if (loginForms.get('email')?.errors &&loginForms.get('email')?.touched )
+      { @if (loginForms.get('email')?.getError('required')) {
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>Email is Required
+      </p>
+      } @else if (loginForms.get('email')?.getError('email')){
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>Please enter Valied
+        email
+      </p>
+      } }
+    </div>
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Password :</label
+      >
+      <input
+        formControlName="password"
+        type="password"
+        id="email"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        required
+      />
+      @if (loginForms.get('password')?.errors
+      &&loginForms.get('password')?.touched ) { @if
+      (loginForms.get('password')?.getError('required')) {
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>Password is
+        Required
+      </p>
+      } @else if (loginForms.get('password')?.getError('pattern')){
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>Password must start
+        with one Uppercase charachter and from 9 to 10 charachter or number
+      </p>
+      } }
+    </div>
+
+    <button
+      [disabled]="loginForms.invalid"
+      type="submit"
+      class="px-6 py-3 rounded-3xl disabled:bg-[#e7475e] bg-[#248888] text-white"
+    >
+      Login @if (isLoading) {
+      <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+      }
+    </button>
+  </form>
+</div>

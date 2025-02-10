@@ -1,0 +1,122 @@
+<div class="container w-[95%] md:w-[90%] m-auto h-[400px] my-10">
+  <div class="parent">
+    <div class="div1">
+      <owl-carousel-o [options]="custommainOptions">
+        <ng-template carouselSlide>
+          <img
+            src="/pexels-polina-tankilevitch-4523031.jpg"
+            class="h-[400px] object-cover"
+            alt=""
+          />
+        </ng-template>
+        <ng-template carouselSlide>
+          <img
+            src="/pexels-mart-production-7679455.jpg"
+            class="h-[400px] object-cover"
+            alt=""
+          />
+        </ng-template>
+        <ng-template carouselSlide>
+          <img
+            src="/pexels-cenali-2733918.jpg"
+            class="h-[400px] object-cover"
+            alt=""
+          />
+        </ng-template>
+        <ng-template carouselSlide>
+          <img
+            src="/pexels-karolina-grabowska-5706277.jpg"
+            class="h-[400px] object-cover"
+            alt=""
+          />
+        </ng-template>
+        <ng-template carouselSlide>
+          <img
+            src="/pexels-jddaniel-2385477.jpg"
+            class="h-[400px] object-cover"
+            alt=""
+          />
+        </ng-template>
+        <ng-template carouselSlide>
+          <img
+            src="/pexels-mnzoutfits-1598505.jpg"
+            class="h-[400px] object-cover"
+            alt=""
+          />
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+
+    <img
+      src="/pexels-geyonk-1152077.jpg"
+      class="h-[200px] object-cover hidden md:block"
+      alt=""
+    />
+
+    <img
+      src="/pexels-mstudio-360817-1449844.jpg"
+      class="h-[200px] object-cover hidden md:block"
+      alt=""
+    />
+  </div>
+</div>
+
+<div class="container w-[70%] md:w-[90%] m-auto">
+  <h2 class="text-3xl text-gray-700 my-4">Shop Popular Categories</h2>
+  <owl-carousel-o [options]="customOptions">
+    @for (categ of Categories; track categ._id) {
+    <ng-template carouselSlide>
+      <img
+        [src]="categ.image"
+        class="w-full h-[300px] object-cover"
+        alt="{{ categ.name }}"
+      />
+      <p class="text-[#248888] text-center mt-2">{{ categ.name }}</p>
+    </ng-template>
+    }
+  </owl-carousel-o>
+</div>
+
+<div>
+  <div class="container w-[70%] md:w-[90%] m-auto py-10">
+    <div
+      class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  2xl:grid-cols-5 gap-x-10 gap-y-20"
+    >
+      @for (item of products; track item.id) {
+      <div class="card  ">
+        <div>
+          <img
+            class="customimg hover:rounded-xl w-full"
+            [src]="item.imageCover"
+            [alt]="item.title"
+          />
+        </div>
+        <div>
+          <p class="title font-bold mt-2 text-xl text-[#248888]">
+            {{ item.title.split(" ", 2).join(" ") }}
+          </p>
+
+          <h5 class="name text-gray-600 mb-3">{{ item.category.name }}</h5>
+          <div class="flex justify-between">
+            <h5 class="price font-bold text-gray-600 text-xl mb-3">{{ item.price }} EGP</h5>
+
+            <i class="fas fa-star text-yellow-300">
+              <span class="text-gray-400 ms-2 text-sm">{{
+                item.ratingsAverage
+              }}</span></i
+            >
+          </div>
+         <div class="flex justify-center ">
+          <button class="w-11/12 ">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front text"> Add To Cart
+            </span>
+          </button>     
+         </div>
+           </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

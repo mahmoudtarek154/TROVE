@@ -1,0 +1,159 @@
+<div class="w-8/12 mx-auto py-10">
+    <h2 class="text-3xl mb-6 text-gray-600">Register Now :</h2>
+  <form [formGroup]="registerforms" (ngSubmit)="registersubmit()">
+    @if (errormesaage.length>0) {
+        <h1 class="text-2xl text-center mb-5 text-[#e7475e]"> {{errormesaage}} <i class="fa-solid fa-circle-exclamation ms-3"></i></h1>
+    }
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Name :</label
+      >
+      <input
+        formControlName="name"
+        type="text"
+        id="email"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        required
+      />
+      @if (registerforms.get('name')?.errors &&
+      registerforms.get('name')?.touched) { @if
+      (registerforms.get('name')?.getError('required')) {
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>Name is Required
+      </p>
+      } @else if(registerforms.get('name')?.getError('minlength')) {
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>Name is mUst be
+        more than 3 charachter
+      </p>
+      } @else if(registerforms.get('name')?.getError('maxlength')) {
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>Name is mUst be
+        less than 20 charachter
+      </p>
+      } }
+    </div>
+
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Email :</label
+      >
+      <input
+        formControlName="email"
+        type="text"
+        id="email"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        required
+      />
+      @if (registerforms.get('email')?.errors &&registerforms.get('email')?.touched ) {
+
+        @if (registerforms.get('email')?.getError('required')) {
+            <p class="mt-2 text-[#e7475e]">
+                <i class="fa-solid fa-square-xmark text-xl me-2"></i>Email is Required
+              </p>
+        }
+        @else if (registerforms.get('email')?.getError('email')){
+            <p class="mt-2 text-[#e7475e]">
+                <i class="fa-solid fa-square-xmark text-xl me-2"></i>Please enter Valied email 
+              </p>
+        }
+      }
+    </div>
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Password :</label
+      >
+      <input
+        formControlName="password"
+        type="password"
+        id="email"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        required
+      />
+      @if (registerforms.get('password')?.errors &&registerforms.get('password')?.touched ) {
+
+        @if (registerforms.get('password')?.getError('required')) {
+            <p class="mt-2 text-[#e7475e]">
+                <i class="fa-solid fa-square-xmark text-xl me-2"></i>Password is Required
+              </p>
+        }
+        @else if (registerforms.get('password')?.getError('pattern')){
+            <p class="mt-2 text-[#e7475e]">
+                <i class="fa-solid fa-square-xmark text-xl me-2"></i>Password must start with one Uppercase charachter  and from 9 to 10 charachter or number
+              </p>
+        }
+      }
+    </div>
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >rePassword :</label
+      >
+      <input
+        formControlName="rePassword"
+        type="password"
+        id="email"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        required
+      />
+      @if (registerforms.get('rePassword')?.errors &&registerforms.get('rePassword')?.touched ) {
+
+        @if (registerforms.get('rePassword')?.getError('required')) {
+            <p class="mt-2 text-[#e7475e]">
+                <i class="fa-solid fa-square-xmark text-xl me-2"></i>rePassword is Required
+              </p>
+        }
+        @else if (registerforms.get('rePassword')?.getError('pattern')){
+            <p class="mt-2 text-[#e7475e]">
+                <i class="fa-solid fa-square-xmark text-xl me-2"></i>rePassword is unvalied
+              </p>
+        }
+      }
+       @if (registerforms.errors&& registerforms.touched &&registerforms.get('rePassword')?.touched ){
+        <p class="mt-2 text-[#e7475e]">
+            <i class="fa-solid fa-square-xmark text-xl me-2"></i>Password and rePassword are not matched
+          </p>
+    }
+    </div>
+    <div class="mb-5">
+      <label
+        for="email"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >Phone :</label
+      >
+      <input
+        formControlName="phone"
+        type="text"
+        id="email"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        required
+      />
+      @if (registerforms.get('phone')?.errors &&registerforms.get('phone')?.touched ) {
+
+        @if (registerforms.get('phone')?.getError('required')) {
+            <p class="mt-2 text-[#e7475e]">
+                <i class="fa-solid fa-square-xmark text-xl me-2"></i>phone is Required
+              </p>
+        }
+        @else if (registerforms.get('phone')?.getError('pattern')){
+            <p class="mt-2 text-[#e7475e]">
+                <i class="fa-solid fa-square-xmark text-xl me-2"></i>Phone Number is unvalied 
+              </p>
+        }
+      }
+    </div>
+    <button [disabled]="registerforms.invalid" type="submit" class="px-6 py-3 rounded-3xl disabled:bg-[#e7475e] bg-[#248888] text-white">
+      Register 
+      @if (isLoading) {
+        <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+      }
+    </button>
+  </form>
+</div>

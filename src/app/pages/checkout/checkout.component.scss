@@ -1,0 +1,42 @@
+/* أنيميشن النبض لزر الدفع أونلاين */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  /* أنيميشن الاهتزاز لزر الدفع كاش */
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px) rotate(-2deg); }
+    50% { transform: translateX(3px) rotate(2deg); }
+    75% { transform: translateX(-2px) rotate(-1deg); }
+    100% { transform: translateX(0); }
+  }
+  
+  /* استايل الأزرار */
+  .button {
+    padding: 12px 24px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.1); /* تكبير عند المرور */
+      animation: none; /* تعطيل الأنيميشن أثناء الـ hover */
+    }
+  }
+  
+  /* زر الدفع أونلاين */
+  .online-payment {
+    animation: pulse 1.5s infinite;
+  
+    
+  }
+  
+  .cash-payment {
+    animation: shake 0.5s ease-in-out infinite;
+  
+  }
+  

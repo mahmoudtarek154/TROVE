@@ -1,1 +1,109 @@
-<p>checkout works!</p>
+<div class="w-8/12 mx-auto py-10">
+  <h2 class="text-5xl mb-6 text-center text-[#248888]  "> {{ 'checkout' | translate }}</h2>
+  <form [formGroup]="checkoutForms" (ngSubmit)="submitForm()">
+    <div class="mb-5">
+      <label
+        for="details"
+        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >{{'details' | translate }} :</label
+      >
+      <textarea
+        formControlName="details"
+        id="details"
+        class="shadow-xs mb-7 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        required
+      ></textarea>
+      @if (checkoutForms.get('details')?.errors &&
+      checkoutForms.get('details')?.touched) { @if
+      (checkoutForms.get('details')?.getError('required')) {
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>details is Required
+      </p>
+      } @else if(checkoutForms.get('details')?.getError('minlength')) {
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>details is mUst be
+        more than 20 charachter
+      </p>
+      } @else if(checkoutForms.get('details')?.getError('maxlength')) {
+      <p class="mt-2 text-[#e7475e]">
+        <i class="fa-solid fa-square-xmark text-xl me-2"></i>Name is mUst be
+        less than 50 charachter
+      </p>
+      } }
+      <label
+      for="phone"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >{{'phone' | translate }} :</label
+    >
+    <input
+      formControlName="phone"
+      type="tel"
+      id="phone"
+      class="shadow-xs mb-7 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+      required
+    />
+    @if (checkoutForms.get('phone')?.errors &&checkoutForms.get('phone')?.touched ) {
+
+      @if (checkoutForms.get('phone')?.getError('required')) {
+          <p class="mt-2 text-[#e7475e]">
+              <i class="fa-solid fa-square-xmark text-xl me-2"></i>phone is Required
+            </p>
+      }
+      @else if (checkoutForms.get('phone')?.getError('pattern')){
+          <p class="mt-2 text-[#e7475e]">
+              <i class="fa-solid fa-square-xmark text-xl me-2"></i>Phone Number is unvalied 
+            </p>
+      }
+    }
+      <label
+      for="city"
+      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+      >{{'city' | translate }} :</label
+    >
+    <input
+      formControlName="city"
+      type="text"
+      id="city"
+      class="shadow-xs mb-7 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+      required
+    />
+    @if (checkoutForms.get('city')?.errors &&
+    checkoutForms.get('city')?.touched) { @if
+    (checkoutForms.get('city')?.getError('required')) {
+    <p class="mt-2 text-[#e7475e]">
+      <i class="fa-solid fa-square-xmark text-xl me-2"></i>city name is Required
+    </p>
+    } @else if(checkoutForms.get('city')?.getError('minlength')) {
+    <p class="mt-2 text-[#e7475e]">
+      <i class="fa-solid fa-square-xmark text-xl me-2"></i>city name is mUst be
+      more than 3 charachter
+    </p>
+    } @else if(checkoutForms.get('city')?.getError('maxlength')) {
+    <p class="mt-2 text-[#e7475e]">
+      <i class="fa-solid fa-square-xmark text-xl me-2"></i>Name is mUst be
+      less than 20 charachter
+    </p>
+    } }
+ 
+    </div>
+  
+
+    <button
+    [disabled]="checkoutForms.invalid"
+    type="submit"
+    class="button online-payment mt-3 bg-[#248888]  disabled:bg-[#5f6769]   hover:bg-[#1d6f6f]"
+  >
+    {{'onlinepayment' | translate }} <i class="fa-brands fa-cc-visa"></i>
+  </button>
+  
+  
+  </form>
+  <button
+  (click)="cashPaymentSubmit()"
+    [disabled]="checkoutForms.invalid"
+    type="submit"
+    class="button cash-payment ms-3 mt-5 bg-[#facf5a] disabled:bg-[#5f6769] hover:bg-[#e5b840]"
+  >
+  {{'cashPayment' | translate }}
+  </button>
+</div>

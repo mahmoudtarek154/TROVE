@@ -7,12 +7,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { RegisrtationService } from './../../core/services/auth/regisrtation.service';
-import { routes } from '../../app.routes';
 import { Router } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule ,TranslatePipe],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })

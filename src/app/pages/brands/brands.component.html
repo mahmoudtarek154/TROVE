@@ -1,1 +1,35 @@
-<p>brands works!</p>
+
+
+
+<div class="py-14">
+    <h1 class="customiseafterline relative text-center text-5xl font-bold mt-5 mb-20 text-[#248888]">
+      {{ "brands" | translate }}
+    </h1>
+  
+    <form [formGroup]="brandsForms">
+      <input
+        formControlName="search"
+        placeholder="Search . . ."
+        type="text"
+        class="shadow-xs mx-auto w-2/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+      />
+    </form>
+  
+    <div class="container w-[70%] md:w-[90%] m-auto py-10">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-10 gap-y-20">
+        @for (item of filteredBrands; track item._id) {
+          <div class="card">
+            <div class="cursor-pointer">
+              <img class="customimg hover:rounded-xl w-full" [src]="item.image" [alt]="item.name" />
+            </div>
+            <div>
+              <h5 class="name text-center font-bold text-xl text-[#248888] mb-3">
+                {{ item.name }}
+              </h5>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,26 @@
+<div>
+    
+<h2
+    
+    
+class=" customiseafterline relative text-[#248888] mt-10 mb-20 text-center text-5xl font-bold"
+>
+{{ "allorders" | translate }}
+</h2>
+<div class="w-8/12  mx-auto">
+
+    @for (item of orders ; track item.id) {
+
+        <div class="card mx-auto  w-full mb-28 ">
+
+@for (image of item.cartItems ; track image._id) {
+    <img class="w-[200px] rounded-2xl mx-5 object-cover inline-block" [src]="image.product.imageCover" alt="">
+}
+<p class="text-center mt-5 text-[#248888] font-semibold text-4xl">Total Price : {{item.totalOrderPrice}} EGP</p>
+<p class="text-center text-gray-600 font-semibold text-2xl">Payment Method : {{item.paymentMethodType}}</p>
+
+
+</div>
+    }
+</div>
+</div>

@@ -1,11 +1,11 @@
 <div class="w-8/12 mx-auto py-10">
-  <h2 class="text-3xl mb-6 text-gray-600">Login Now :</h2>
+  <h2 class="text-3xl mb-6 text-gray-600"> {{'loginNow' | translate }} :</h2>
   <form [formGroup]="loginForms" (ngSubmit)="loginsubmit()">
     <div class="mb-5">
       <label
         for="email"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Email :</label
+        >{{'email'| translate }} :</label
       >
       <input
         formControlName="email"
@@ -30,7 +30,7 @@
       <label
         for="email"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Password :</label
+        > {{'password' | translate }} :</label
       >
       <input
         formControlName="password"
@@ -59,9 +59,10 @@
       type="submit"
       class="px-6 py-3 rounded-3xl disabled:bg-[#e7475e] bg-[#248888] text-white"
     >
-      Login @if (isLoading) {
+      {{'login' | translate }} @if (isLoading) {
       <i class="fa-solid fa-spinner fa-spin-pulse"></i>
       }
     </button>
+    <a routerLink="/forgot" class="ms-3 text-blue-400 cursor-pointer"> {{"forgotPassword" | translate }} </a>
   </form>
 </div>

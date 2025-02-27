@@ -16,8 +16,17 @@
     </a>
     <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <div>
+        
         <div class="  align-middle justify-between flex ">
+          
+          
          <div class="hidden lg:flex gap-1">
+ 
+<div class="me-5">
+  <p class="cursor-pointer "><span class="hover:text-[#23b1a5]" (click)="changeLangaugeByHtml('en')">EN </span> <span> | </span> <span class="hover:text-[#23b1a5]" (click)="changeLangaugeByHtml('ar')"> Ar</span></p>
+</div>
+
+
             <i
             class="fa-brands cursor-pointer text-gray-700 flex justify-center p-1 items-center hover:text-[#23b1a5] text-lg fa-facebook-f"
           ></i>
@@ -33,6 +42,7 @@
           <i
             class="fa-brands cursor-pointer text-gray-700 flex justify-center p-1 items-center hover:text-[#23b1a5] text-lg fa-linkedin"
           ></i>
+          
          </div>
           <div>
             <ul class="flex gap-0 md:gap-4  md:ms-12">
@@ -44,7 +54,7 @@
   
                     routerLink="login"
                     class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text--[#23b1a5 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                    >Login</a
+                    >{{'login' | translate}}</a
                   >
                 </li>
                 <li>
@@ -53,7 +63,7 @@
   
                     routerLink="register"
                     class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                    >Register</a
+                    >{{'register' | translate}}</a
                   >
                 </li>
             
@@ -61,11 +71,21 @@
               @if (islogin) {
                 <li>
                   <a
-                  (click)="logout()"
-                    class="block py-2 px-3 cursor-pointer text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                    >Logout</a
+                    routerLinkActive="customnavli"
+                    routerLink="cart"
+                    class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    ><img src="/icons8-cart-32.png" alt=""></a
                   >
                 </li>
+                
+                <li>
+                  <a
+                  (click)="logout()"
+                    class="block py-2 px-3 cursor-pointer text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                    > {{'logout' | translate}} </a
+                  >
+                </li>
+                
               }
 
             </ul>
@@ -110,7 +130,7 @@
           routerLinkActive="customnavli"
           routerLink="home"
           class="block py-2 px-3 text-white rounded-sm md:bg-transparent md:hover:text-[#23b1a5] md:text-gray-900 md:p-0 md:dark:text-[#23b1a5]"
-          >Home</a
+          >{{'home' | translate}}</a
         >
       </li>
       <li>
@@ -118,15 +138,24 @@
           routerLinkActive="customnavli"
           routerLink="cart"
           class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-          >Cart</a
+          >{{'cart' | translate}}</a
         >
       </li>
       <li>
         <a
           routerLinkActive="customnavli"
+          routerLink="wishlist"
+          class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+          >{{'wishlist' | translate}}</a
+        >
+      </li>
+    
+      <li>
+        <a
+          routerLinkActive="customnavli"
           routerLink="products"
           class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-          >Products</a
+          >{{'products' | translate}}</a
         >
       </li>
       <li>
@@ -134,7 +163,7 @@
           routerLinkActive="customnavli"
           routerLink="categories"
           class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-          >Categoties</a
+          >{{'categories' | translate}}</a
         >
       </li>
       <li>
@@ -142,7 +171,7 @@
           routerLinkActive="customnavli"
           routerLink="brands"
           class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-[#23b1a5] md:p-0 md:dark:hover:text-[#23b1a5] dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-          >Brands
+          >{{'brands' | translate}}
         </a>
       </li>
     </ul>

@@ -1,1 +1,62 @@
-<p>products works!</p>
+<div class="py-14">
+  <h1 class=" customiseafterline relative text-center text-5xl font-bold mt-5 mb-20 text-[#248888]">
+    {{ "products" | translate }}
+  </h1>
+
+  <form [formGroup]="productForms">
+    <input
+      formControlName="search"
+      placeholder="Search . . ."
+      type="text"
+      class="shadow-xs mx-auto w-2/5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+    />
+  </form>
+  <div class="container w-[70%] md:w-[90%] m-auto py-10">
+    <div
+      class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-10 gap-y-20"
+    >
+      @for (item of filteredProducts; track item.id) {
+      <div class="card">
+        <div [routerLink]="['/details', item.id]" class="cursor-pointer">
+          <img
+            class="customimg hover:rounded-xl w-full"
+            [src]="item.imageCover"
+            [alt]="item.title"
+          />
+        </div>
+        <div>
+          <p class="title font-bold mt-2 text-xl text-[#248888]">
+            {{ item.title.split(" ", 2).join(" ") }}
+          </p>
+
+          <h5 class="name text-gray-600 mb-3">{{ item.category.name }}</h5>
+          <div class="flex justify-between">
+            <h5 class="price font-bold text-gray-600 text-xl mb-3">
+              {{ item.price }} EGP
+            </h5>
+
+            <i class="fas fa-star text-yellow-300">
+              <span class="text-gray-400 ms-2 text-sm">{{
+                item.ratingsAverage
+              }}</span></i
+            >
+          </div>
+          <div class="flex justify-center">
+            <button
+              (click)="addItemToCart(item.id)"
+              class="w-8/12 custombutton"
+            >
+              <span class="shadow"></span>
+              <span class="edge"></span>
+              <span class="front text"> {{ "addtocart" | translate }} </span>
+            </button>
+            <i
+              class="fa-solid fa-heart my-auto ms-3 cursor-pointer text-3xl text-[#e7475f4e]"
+            ></i>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

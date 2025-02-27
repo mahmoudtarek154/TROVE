@@ -1,0 +1,105 @@
+.categoriesCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease-in-out;
+  animation: fadeInUp 0.8s ease-in-out;
+  will-change: transform, opacity;
+}
+
+.categoriesCard:hover {
+  transform: translateY(-12px) scale(1.07) rotate(-1deg);
+  box-shadow: 0 15px 30px rgba(36, 136, 136, 0.4);
+  filter: brightness(1.1);
+}
+
+.categoriesCard img {
+  transition: transform 0.6s ease-in-out;
+}
+
+.categoriesCard:hover img {
+  transform: scale(1.15) rotate(3deg);
+  animation: waveEffect 1.5s infinite ease-in-out;
+}
+
+.categoriesCard p {
+  transition: color 0.3s ease-in-out, letter-spacing 0.3s ease-in-out;
+}
+
+.categoriesCard:hover p {
+  color: #e7475e;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 5px rgba(231, 71, 95, 0.4274509804);
+}
+
+.categoriesCard::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 10%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.categoriesCard:hover::before {
+  opacity: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes waveEffect {
+  0% {
+    transform: scale(1.15) rotate(3deg) translateY(0px);
+  }
+  50% {
+    transform: scale(1.17) rotate(2deg) translateY(-5px);
+  }
+  100% {
+    transform: scale(1.15) rotate(3deg) translateY(0px);
+  }
+}
+.customiseafterline::after {
+  content: "";
+  width: 200px;
+  height: 6px;
+  background-color: #248888;
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  border-radius: 1000px;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(36, 136, 136, 0.8);
+  animation: fadeInLine 1s ease-out, pulseGlow 2s infinite alternate ease-in-out;
+}
+
+@keyframes fadeInLine {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 200px;
+    opacity: 1;
+  }
+}
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(36, 136, 136, 0.5);
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    box-shadow: 0 0 20px rgb(36, 136, 136);
+    transform: translateX(-50%) scale(1.1);
+  }
+}/*# sourceMappingURL=categories.component.css.map */

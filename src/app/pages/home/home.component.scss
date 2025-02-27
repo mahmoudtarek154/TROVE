@@ -67,6 +67,14 @@ button {
     transition: filter 250ms;
     user-select: none;
     touch-action: manipulation;
+    opacity: 0;
+    transition: all 0.5s;
+
+   }
+   .card:hover button{
+
+    opacity: 1;
+
    }
    
    .shadow {

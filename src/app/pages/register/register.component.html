@@ -1,5 +1,5 @@
 <div class="w-8/12 mx-auto py-10">
-    <h2 class="text-3xl mb-6 text-gray-600">Register Now :</h2>
+    <h2 class="text-3xl mb-6 text-gray-600">{{'registerNow' | translate }} :</h2>
   <form [formGroup]="registerforms" (ngSubmit)="registersubmit()">
     @if (errormesaage.length>0) {
         <h1 class="text-2xl text-center mb-5 text-[#e7475e]"> {{errormesaage}} <i class="fa-solid fa-circle-exclamation ms-3"></i></h1>
@@ -8,7 +8,7 @@
       <label
         for="email"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Name :</label
+        >{{'name' | translate }} :</label
       >
       <input
         formControlName="name"
@@ -40,7 +40,7 @@
       <label
         for="email"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Email :</label
+        >{{ 'email' | translate }} :</label
       >
       <input
         formControlName="email"
@@ -67,7 +67,7 @@
       <label
         for="email"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Password :</label
+        > {{ 'password' | translate }} :</label
       >
       <input
         formControlName="password"
@@ -94,8 +94,8 @@
       <label
         for="email"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >rePassword :</label
-      >
+        >{{'rePassword' | translate }} :</label
+      > 
       <input
         formControlName="rePassword"
         type="password"
@@ -126,7 +126,7 @@
       <label
         for="email"
         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >Phone :</label
+        >{{'phone' | translate }} :</label
       >
       <input
         formControlName="phone"
@@ -150,7 +150,7 @@
       }
     </div>
     <button [disabled]="registerforms.invalid" type="submit" class="px-6 py-3 rounded-3xl disabled:bg-[#e7475e] bg-[#248888] text-white">
-      Register 
+      {{'register' | translate }} 
       @if (isLoading) {
         <i class="fa-solid fa-spinner fa-spin-pulse"></i>
       }

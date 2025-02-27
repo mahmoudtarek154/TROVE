@@ -3,4 +3,13 @@
 <router-outlet></router-outlet>
 
 </div>
+<ngx-spinner 
+  bdColor="rgba(0, 0, 0, 0.8)" 
+  size="large" 
+  color="#fff" 
+  type="square-jelly-box" 
+  [fullScreen]="true">
+  <p class="loading-text">Loading...</p> <!-- إضافة فئة لتخصيص النص -->
+</ngx-spinner>
+
 <app-footer></app-footer>

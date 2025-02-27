@@ -1,1 +1,27 @@
-<p>categories works!</p>
+<div>
+  <h2
+    
+    
+    class=" customiseafterline relative text-[#248888] mt-10 text-center text-5xl font-bold"
+  >
+    {{ "categories" | translate }}
+  </h2>
+
+  <div
+    class="grid sm:grid-cols-2 md:grid-cols-3 mx-auto gap-10 py-20 w-9/12 gap-x-10 gap-y-20"
+  >
+    @for (item of Categories; track item._id) {
+    <div class="categoriesCard cursor-pointer hover:scale-110 transition-all">
+      <img
+        class="w-full object-cover h-[450px] rounded-2xl"
+        [src]="item.image"
+        alt=""
+      />
+      <p class="text-[#248888] mb-4 mt-10 text-center text-3xl font-semibold">
+        {{ item.name }}
+      </p>
+    </div>
+
+    }
+  </div>
+</div>

@@ -62,7 +62,9 @@
 </div>
 
 <div class="container w-[70%] md:w-[90%] m-auto">
-  <h2 class="text-3xl text-gray-700 my-4">Shop Popular Categories</h2>
+  <h2 class="text-3xl text-gray-700 my-4">
+    {{ "shopPopularCategories" | translate }}
+  </h2>
   <owl-carousel-o [options]="customOptions">
     @for (categ of Categories; track categ._id) {
     <ng-template carouselSlide>
@@ -80,41 +82,58 @@
 <div>
   <div class="container w-[70%] md:w-[90%] m-auto py-10">
     <div
-      class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  2xl:grid-cols-5 gap-x-10 gap-y-20"
+      class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-10 gap-y-20"
     >
       @for (item of products; track item.id) {
-      <div class="card  ">
-        <div>
-          <img
-            class="customimg hover:rounded-xl w-full"
-            [src]="item.imageCover"
-            [alt]="item.title"
-          />
-        </div>
-        <div>
-          <p class="title font-bold mt-2 text-xl text-[#248888]">
-            {{ item.title.split(" ", 2).join(" ") }}
-          </p>
-
-          <h5 class="name text-gray-600 mb-3">{{ item.category.name }}</h5>
-          <div class="flex justify-between">
-            <h5 class="price font-bold text-gray-600 text-xl mb-3">{{ item.price }} EGP</h5>
-
-            <i class="fas fa-star text-yellow-300">
-              <span class="text-gray-400 ms-2 text-sm">{{
-                item.ratingsAverage
-              }}</span></i
-            >
+      <div class="card">
+        <div [routerLink]="['/details', item.id]" class="cursor-pointer">
+          <div>
+            <img
+              class="customimg hover:rounded-xl w-full"
+              [src]="item.imageCover"
+              [alt]="item.title"
+            />
           </div>
-         <div class="flex justify-center ">
-          <button class="w-11/12 ">
+          <div>
+            <p class="title font-bold mt-2 text-xl text-[#248888]">
+              {{ item.title.split(" ", 2).join(" ") }}
+            </p>
+
+            <h5 class="name text-gray-600 mb-3">{{ item.category.name }}</h5>
+            <div class="flex justify-between">
+              <h5 class="price font-bold text-gray-600 text-xl mb-3">
+                {{ item.price }} EGP
+              </h5>
+
+              <i class="fas fa-star text-yellow-300">
+                <span class="text-gray-400 ms-2 text-sm">{{
+                  item.ratingsAverage
+                }}</span></i
+              >
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center">
+          <button (click)="addItemToCart(item.id)" class="w-8/12 custombutton">
             <span class="shadow"></span>
             <span class="edge"></span>
-            <span class="front text"> Add To Cart
-            </span>
-          </button>     
-         </div>
-           </div>
+            <span class="front text"> {{ "addtocart" | translate }} </span>
+          </button>
+
+          <!-- <i
+            (click)="addItemToWishlist(item.id, $event)"
+            class="fa-solid fa-heart my-auto ms-3 cursor-pointer text-3xl text-[#e7475f4e]"
+          ></i> -->
+          <i
+            (click)="addItemToWishlist(item.id, $event)"
+            class="fa-solid fa-heart my-auto ms-3 cursor-pointer text-3xl"
+            [ngClass]="
+              wishlistItems.includes(item.id)
+                ? 'text-[#e7475e]'
+                : 'text-[#e7475f4e]'
+            "
+          ></i>
+        </div>
       </div>
       }
     </div>

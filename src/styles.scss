@@ -3,5 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'ngx-toastr/toastr';
+
+
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+@font-face {
+    font-family: cairo;
+    src: url(/Cairo-VariableFont_slnt\,wght.ttf);
+}
+body{
+    font-family: cairo;
+}

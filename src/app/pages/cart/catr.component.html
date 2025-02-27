@@ -1,1 +1,73 @@
-<p>catr works!</p>
+<section>
+  <div class="bg-[#fafafa] mx-auto w-8/12 my-14 shadow-md rounded-md border p-6">
+
+<div >
+<button (click)="clearDataFromCart()" class="button ms-auto mb-4">
+  <svg viewBox="0 0 448 512" class="svgIcon"><path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"></path></svg>
+</button>
+  
+</div>
+
+
+    <h2 class="text-gray-600 text-4xl"> {{'shopcart' | translate }}</h2>
+    <h3 class="text-[#248888] text-xl my-3">
+      {{'totalCartPrice' | translate }} : {{ cartDetails.totalCartPrice }} EGP
+    </h3>
+    <hr />
+    @for (item of cartDetails.products ; track item.product._id ) {
+    <div class="grid md:grid-cols-[10%_minmax(0,1fr)] gap-4 my-4 bb-g">
+      <div>
+        <img
+          [src]="item.product.imageCover"
+          class="w-full  object-cover"
+          [alt]="item.product.title"
+        />
+      </div>
+      <div class="flex sm:flex-row flex-col justify-between">
+        <div>
+          <h3 class="text-gray-600 font-medium text-xl">{{ item.product.title.split(" ", 4).join(" ") }}</h3>
+          <h4 class="text-[#248888] font-medium text-lg"> {{'price' | translate }} : {{ item.price }}</h4>
+         
+          <button
+          class="mt-4 "
+          (click)="removeProductFromCart(item.product._id)"
+          >
+
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <span class="front text"> {{'remove' | translate }}
+            </span>
+          </button>
+        </div>
+        <div class=" self-end sm:self-center ">
+          <button
+            (click)="updateCartCount(item.product._id, item.count + 1)"
+            class="custombutton"
+          >
+            <i class="fa-solid fa-plus "></i>
+          </button>
+          <span class="mx-3 ">{{ item.count }}</span>
+          <button
+            (click)="updateCartCount(item.product._id, item.count - 1)"
+            class="custombutton"
+          >
+            <i class="fa-solid fa-minus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr />
+    }
+      
+    <button
+    [routerLink]="['/checkout',cartDetails._id]"
+    class="mt-4 "
+    >
+
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front text"> {{'checkout' | translate }}
+      </span>
+    </button>
+  </div>
+</section>

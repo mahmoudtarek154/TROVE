@@ -1,0 +1,40 @@
+@if (detailsproduct) {
+  <div>
+    <div class="w-[80%] mx-auto">
+        <h1 class="customiseafterline relative text-center text-5xl font-bold mt-5 mb-20 text-[#248888]">
+            {{ "productdetails" | translate }}
+          </h1>
+          <div class="flex md:flex-row mx-auto flex-col ">
+            <div class="self-center">
+              <img
+                [src]="detailsproduct.imageCover"
+                class="w-[400px] m-auto"
+                [alt]="detailsproduct.title"
+              />
+            </div>
+            <div class="self-center ms-10">
+              <h2 class=" text-3xl font-bold  my-3 text-gray-600">{{ detailsproduct.title }}</h2>
+              <p class="text-gray-400 my-2">{{ detailsproduct.description }}</p>
+              <h3 class=" text-[#248888] font-bold text-xl">{{ detailsproduct.category.name }}</h3>
+              <div class="flex justify-between">
+                <p class="text-xl"> Price : {{ detailsproduct.price }} EGP</p>
+                <i class="fas fa-star text-yellow-300">
+                  <span class="text-gray-400 ms-2 text-sm">{{
+                    detailsproduct.ratingsAverage
+                  }}</span></i
+                >
+            
+              </div>
+              <button
+              (click)="addItemToCart(detailsproduct.id)"
+              class="w-full custombutton mt-16 mb-10"
+            >
+              <span class="shadow"></span>
+              <span class="edge"></span>
+              <span class="front text"> {{ 'addtocart' | translate }} </span>
+            </button>
+            </div>
+          </div>
+    </div>
+    </div>
+}

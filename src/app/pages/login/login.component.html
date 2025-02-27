@@ -4,14 +4,14 @@
     <div class="mb-5">
       <label
         for="email"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        class="block mb-2 text-sm font-medium text-gray-900 "
         >{{'email'| translate }} :</label
       >
       <input
         formControlName="email"
         type="text"
         id="email"
-        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5"
         required
       />
       @if (loginForms.get('email')?.errors &&loginForms.get('email')?.touched )
@@ -29,14 +29,14 @@
     <div class="mb-5">
       <label
         for="email"
-        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        class="block mb-2 text-sm font-medium text-gray-900 "
         > {{'password' | translate }} :</label
       >
       <input
         formControlName="password"
         type="password"
         id="email"
-        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-xs-light"
+        class="shadow-xs bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#248888] focus:border-[#248888] block w-full p-2.5"
         required
       />
       @if (loginForms.get('password')?.errors

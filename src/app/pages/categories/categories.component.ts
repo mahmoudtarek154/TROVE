@@ -11,7 +11,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class CategoriesComponent implements OnInit{
 
-
+ 
 
   private readonly categoriesService = inject(CategoriesService);
   Categories: ICategories[] = [];
@@ -20,10 +20,15 @@ export class CategoriesComponent implements OnInit{
       next: (res) => {
         this.Categories = res.data;
       },
-      error: (err) => {},
+      error: (err) => {
+      },
     });
+
+  
     
   }
+
+
   ngOnInit(): void {
     this.getEnabledCategories();
   }

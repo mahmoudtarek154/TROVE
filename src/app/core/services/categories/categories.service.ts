@@ -19,4 +19,6 @@ export class CategoriesService {
     return this.httpClient.get(environment.baseUrl+`/api/v1/products/${id}`)
 
   }
+
+ 
 }
